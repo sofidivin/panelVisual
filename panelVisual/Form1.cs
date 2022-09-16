@@ -27,6 +27,7 @@ namespace panelVisual
 
         private void VisualizarProductos()
         {
+            dataGridView1.Rows.Clear();
             foreach(Producto prod in ProductoRepositorio.Productos)
             {
                 int rowIndex = dataGridView1.Rows.Add();
@@ -34,6 +35,53 @@ namespace panelVisual
                 dataGridView1.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
                 dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Color.ToString();
                 dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Precio.ToString();
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if(dataGridView1.SelectedRows.Count > 0)
+            {
+                string idCategoriaEliminar = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                ProductoRepositorio.EliminarProducto(int.Parse(idCategoriaEliminar));
+                VisualizarProductos();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un producto para Eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                string idCategoriaEditar = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                string nombreCategoriaEditar = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                string colorCategoriaEditar = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                string precioCategoriaEditar = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+
+                Producto productoEditar = new Producto()
+                {
+                    Id = int.Parse(idCategoriaEditar),
+                    Nombre = nombreCategoriaEditar,
+                    Color = colorCategoriaEditar,
+                    Precio = double.Parse(precioCategoriaEditar)
+                };
+
+                ProductForm productForm = new ProductForm();
+                DialogResult dialogResult = productForm.ShowDialog();
+
+                if (dialogResult == DialogResult.OK)
+                {
+                    // Edito el producto
+                    ProductoRepositorio.EditarProducto(int.Parse(idCategoriaEditar), productForm.produtoNuevo);
+                    VisualizarProductos();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un producto para Editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -82,5 +130,6 @@ namespace panelVisual
         {
 
         }
+
     }
 }

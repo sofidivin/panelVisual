@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Id = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.Id = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -42,11 +43,13 @@
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.Precio = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,15 +61,6 @@
             this.panel1.Size = new System.Drawing.Size(200, 23);
             this.panel1.TabIndex = 0;
             // 
-            // Id
-            // 
-            this.Id.Location = new System.Drawing.Point(0, 0);
-            this.Id.Name = "Id";
-            this.Id.Size = new System.Drawing.Size(100, 23);
-            this.Id.TabIndex = 0;
-            this.Id.Text = "ID";
-            this.Id.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // txtId
             // 
             this.txtId.Location = new System.Drawing.Point(100, 0);
@@ -74,13 +68,26 @@
             this.txtId.Size = new System.Drawing.Size(100, 23);
             this.txtId.TabIndex = 1;
             // 
+            // Id
+            // 
+            this.Id.BackColor = System.Drawing.Color.Black;
+            this.Id.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Id.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Id.Location = new System.Drawing.Point(0, 0);
+            this.Id.Name = "Id";
+            this.Id.Size = new System.Drawing.Size(100, 23);
+            this.Id.TabIndex = 0;
+            this.Id.Text = "ID";
+            this.Id.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Black;
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.panel2);
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(38, 76);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(213, 121);
             this.flowLayoutPanel1.TabIndex = 1;
@@ -103,6 +110,9 @@
             // 
             // Nombre
             // 
+            this.Nombre.BackColor = System.Drawing.Color.Black;
+            this.Nombre.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Nombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Nombre.Location = new System.Drawing.Point(0, 0);
             this.Nombre.Name = "Nombre";
             this.Nombre.Size = new System.Drawing.Size(100, 23);
@@ -128,6 +138,9 @@
             // 
             // Color
             // 
+            this.Color.BackColor = System.Drawing.Color.Black;
+            this.Color.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Color.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Color.Location = new System.Drawing.Point(0, 0);
             this.Color.Name = "Color";
             this.Color.Size = new System.Drawing.Size(100, 23);
@@ -153,6 +166,9 @@
             // 
             // Precio
             // 
+            this.Precio.BackColor = System.Drawing.Color.Black;
+            this.Precio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Precio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Precio.Location = new System.Drawing.Point(0, 0);
             this.Precio.Name = "Precio";
             this.Precio.Size = new System.Drawing.Size(100, 23);
@@ -162,19 +178,38 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(140, 158);
+            this.btnAceptar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAceptar.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAceptar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAceptar.Location = new System.Drawing.Point(98, 203);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.Size = new System.Drawing.Size(85, 32);
             this.btnAceptar.TabIndex = 2;
             this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(48, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(193, 45);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
             // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 217);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(289, 253);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "ProductForm";
@@ -188,6 +223,7 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -208,5 +244,6 @@
         private TextBox txtPrecio;
         private Label Precio;
         private Button btnAceptar;
+        private PictureBox pictureBox1;
     }
 }

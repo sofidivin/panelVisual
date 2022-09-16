@@ -20,6 +20,15 @@ namespace panelVisual
             InitializeComponent();
         }
 
+        public ProductForm(Producto prod)
+        {
+            InitializeComponent();
+            txtId.Text = prod.Id.ToString();
+            txtNombre.Text = prod.Nombre;
+            txtColor.Text = prod.Color;
+            txtPrecio.Text = prod.Precio.ToString();
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             bool productoValidado = ValidarProducto(out string errorMsg);
@@ -31,7 +40,7 @@ namespace panelVisual
                     Id = int.Parse(txtId.Text),
                     Nombre = txtNombre.Text,
                     Color = txtColor.Text,
-                    Precio = int.Parse(txtPrecio.Text)
+                    Precio = double.Parse(txtPrecio.Text)
                 };
 
                 this.DialogResult = DialogResult.OK;
