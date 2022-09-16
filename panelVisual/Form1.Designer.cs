@@ -30,18 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.Label();
-            this.txtColor = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtColor = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.labelPrecio = new System.Windows.Forms.Label();
+            this.labelNombre = new System.Windows.Forms.Label();
+            this.labelColor = new System.Windows.Forms.Label();
+            this.labelId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -51,143 +55,84 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
             this.dataGridView1.Location = new System.Drawing.Point(19, 19);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(429, 260);
+            this.dataGridView1.Size = new System.Drawing.Size(443, 260);
             this.dataGridView1.TabIndex = 0;
             // 
-            // textBox1
+            // Column1
             // 
-            this.textBox1.Location = new System.Drawing.Point(593, 110);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 25);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
             // 
-            // textBox2
+            // Column2
             // 
-            this.textBox2.Location = new System.Drawing.Point(593, 141);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 25);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.Column2.HeaderText = "Nombre";
+            this.Column2.Name = "Column2";
             // 
-            // textBox3
+            // Column3
             // 
-            this.textBox3.Location = new System.Drawing.Point(593, 171);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(120, 25);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.Column3.HeaderText = "Color";
+            this.Column3.Name = "Column3";
             // 
-            // textBox4
+            // Column4
             // 
-            this.textBox4.Location = new System.Drawing.Point(593, 203);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(120, 25);
-            this.textBox4.TabIndex = 4;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.Column4.HeaderText = "Precio";
+            this.Column4.Name = "Column4";
             // 
-            // txtId
+            // btnAgregar
             // 
-            this.txtId.AutoSize = true;
-            this.txtId.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.txtId.Location = new System.Drawing.Point(525, 113);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(20, 16);
-            this.txtId.TabIndex = 5;
-            this.txtId.Text = "ID";
-            this.txtId.Click += new System.EventHandler(this.txtId_Click);
+            this.btnAgregar.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnAgregar.Location = new System.Drawing.Point(522, 244);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(215, 35);
+            this.btnAgregar.TabIndex = 9;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // txtNombre
+            // btnEditar
             // 
-            this.txtNombre.AutoSize = true;
-            this.txtNombre.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.txtNombre.Location = new System.Drawing.Point(525, 141);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(57, 16);
-            this.txtNombre.TabIndex = 6;
-            this.txtNombre.Text = "Nombre";
-            this.txtNombre.Click += new System.EventHandler(this.txtNombre_Click);
+            this.btnEditar.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEditar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnEditar.Location = new System.Drawing.Point(196, 312);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(109, 28);
+            this.btnEditar.TabIndex = 10;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
             // 
-            // txtColor
+            // btnEliminar
             // 
-            this.txtColor.AutoSize = true;
-            this.txtColor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.txtColor.Location = new System.Drawing.Point(525, 171);
-            this.txtColor.Name = "txtColor";
-            this.txtColor.Size = new System.Drawing.Size(41, 16);
-            this.txtColor.TabIndex = 7;
-            this.txtColor.Text = "Color";
-            this.txtColor.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.AutoSize = true;
-            this.txtPrecio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.txtPrecio.Location = new System.Drawing.Point(525, 203);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(48, 16);
-            this.txtPrecio.TabIndex = 8;
-            this.txtPrecio.Text = "Precio";
-            this.txtPrecio.Click += new System.EventHandler(this.txtPrecio_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(522, 250);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(215, 29);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button2.Location = new System.Drawing.Point(196, 312);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 28);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button3.Location = new System.Drawing.Point(39, 312);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 28);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Eliminar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnEliminar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnEliminar.Location = new System.Drawing.Point(39, 312);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(112, 28);
+            this.btnEliminar.TabIndex = 11;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -202,6 +147,90 @@
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(593, 110);
+            this.txtId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(120, 25);
+            this.txtId.TabIndex = 1;
+            this.txtId.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(593, 141);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(120, 25);
+            this.txtNombre.TabIndex = 2;
+            this.txtNombre.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // txtColor
+            // 
+            this.txtColor.Location = new System.Drawing.Point(593, 171);
+            this.txtColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtColor.Name = "txtColor";
+            this.txtColor.Size = new System.Drawing.Size(120, 25);
+            this.txtColor.TabIndex = 3;
+            this.txtColor.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(593, 203);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(120, 25);
+            this.txtPrecio.TabIndex = 4;
+            this.txtPrecio.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            // 
+            // labelPrecio
+            // 
+            this.labelPrecio.AutoSize = true;
+            this.labelPrecio.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelPrecio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.labelPrecio.Location = new System.Drawing.Point(525, 203);
+            this.labelPrecio.Name = "labelPrecio";
+            this.labelPrecio.Size = new System.Drawing.Size(48, 16);
+            this.labelPrecio.TabIndex = 8;
+            this.labelPrecio.Text = "Precio";
+            this.labelPrecio.Click += new System.EventHandler(this.txtPrecio_Click);
+            // 
+            // labelNombre
+            // 
+            this.labelNombre.AutoSize = true;
+            this.labelNombre.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.labelNombre.Location = new System.Drawing.Point(525, 141);
+            this.labelNombre.Name = "labelNombre";
+            this.labelNombre.Size = new System.Drawing.Size(57, 16);
+            this.labelNombre.TabIndex = 6;
+            this.labelNombre.Text = "Nombre";
+            this.labelNombre.Click += new System.EventHandler(this.txtNombre_Click);
+            // 
+            // labelColor
+            // 
+            this.labelColor.AutoSize = true;
+            this.labelColor.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.labelColor.Location = new System.Drawing.Point(525, 171);
+            this.labelColor.Name = "labelColor";
+            this.labelColor.Size = new System.Drawing.Size(41, 16);
+            this.labelColor.TabIndex = 7;
+            this.labelColor.Text = "Color";
+            this.labelColor.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // labelId
+            // 
+            this.labelId.AutoSize = true;
+            this.labelId.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.labelId.Location = new System.Drawing.Point(525, 113);
+            this.labelId.Name = "labelId";
+            this.labelId.Size = new System.Drawing.Size(20, 16);
+            this.labelId.TabIndex = 5;
+            this.labelId.Text = "ID";
+            this.labelId.Click += new System.EventHandler(this.txtId_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -209,17 +238,17 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(749, 363);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnAgregar);
+            this.Controls.Add(this.labelPrecio);
+            this.Controls.Add(this.labelColor);
+            this.Controls.Add(this.labelNombre);
+            this.Controls.Add(this.labelId);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtColor);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtId);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.Black;
@@ -238,17 +267,21 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private Label txtId;
-        private Label txtNombre;
-        private Label txtColor;
-        private Label txtPrecio;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnAgregar;
+        private Button btnEditar;
+        private Button btnEliminar;
         private PictureBox pictureBox1;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private TextBox txtId;
+        private TextBox txtNombre;
+        private TextBox txtColor;
+        private TextBox txtPrecio;
+        private Label labelPrecio;
+        private Label labelNombre;
+        private Label labelColor;
+        private Label labelId;
     }
 }
