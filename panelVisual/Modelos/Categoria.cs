@@ -4,16 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace panelVisual.Properties
+namespace panelVisual.Modelos
 {
-    public class Producto
+    public class Categoria
     {
         public int Id { get; set; }
-
         public string Nombre { get; set; }
-
-        public string Color { get; set; }
-
-        public double Precio { get; set; }
     }
 }

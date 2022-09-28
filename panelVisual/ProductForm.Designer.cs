@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductForm));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.Id = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -42,31 +41,29 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.Precio = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.cmBoxCategoria = new System.Windows.Forms.ComboBox();
+            this.Categoria = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblIdProds = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtId);
+            this.panel1.Controls.Add(this.lblIdProds);
             this.panel1.Controls.Add(this.Id);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 23);
             this.panel1.TabIndex = 0;
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(100, 0);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 23);
-            this.txtId.TabIndex = 1;
             // 
             // Id
             // 
@@ -87,9 +84,10 @@
             this.flowLayoutPanel1.Controls.Add(this.panel2);
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(38, 76);
+            this.flowLayoutPanel1.Controls.Add(this.panel5);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(39, 76);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(213, 121);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(213, 155);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // panel2
@@ -176,13 +174,43 @@
             this.Precio.Text = "Precio";
             this.Precio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.cmBoxCategoria);
+            this.panel5.Controls.Add(this.Categoria);
+            this.panel5.Location = new System.Drawing.Point(3, 119);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(200, 23);
+            this.panel5.TabIndex = 5;
+            // 
+            // cmBoxCategoria
+            // 
+            this.cmBoxCategoria.FormattingEnabled = true;
+            this.cmBoxCategoria.Location = new System.Drawing.Point(100, 1);
+            this.cmBoxCategoria.Name = "cmBoxCategoria";
+            this.cmBoxCategoria.Size = new System.Drawing.Size(100, 23);
+            this.cmBoxCategoria.TabIndex = 1;
+            this.cmBoxCategoria.SelectedIndexChanged += new System.EventHandler(this.cmBoxCategoria_SelectedIndexChanged);
+            // 
+            // Categoria
+            // 
+            this.Categoria.BackColor = System.Drawing.Color.Black;
+            this.Categoria.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Categoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Categoria.Location = new System.Drawing.Point(0, 0);
+            this.Categoria.Name = "Categoria";
+            this.Categoria.Size = new System.Drawing.Size(100, 23);
+            this.Categoria.TabIndex = 0;
+            this.Categoria.Text = "Categoria";
+            this.Categoria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // btnAceptar
             // 
             this.btnAceptar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAceptar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnAceptar.Location = new System.Drawing.Point(98, 203);
+            this.btnAceptar.Location = new System.Drawing.Point(103, 237);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(85, 32);
             this.btnAceptar.TabIndex = 2;
@@ -196,19 +224,29 @@
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(48, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(49, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(193, 45);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
+            // lblIdProds
+            // 
+            this.lblIdProds.AutoSize = true;
+            this.lblIdProds.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblIdProds.Location = new System.Drawing.Point(131, 4);
+            this.lblIdProds.Name = "lblIdProds";
+            this.lblIdProds.Size = new System.Drawing.Size(38, 15);
+            this.lblIdProds.TabIndex = 1;
+            this.lblIdProds.Text = "label1";
+            // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(289, 253);
+            this.ClientSize = new System.Drawing.Size(290, 292);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -223,6 +261,7 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -231,7 +270,6 @@
         #endregion
 
         private Panel panel1;
-        private TextBox txtId;
         private Label Id;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel2;
@@ -245,5 +283,9 @@
         private Label Precio;
         private Button btnAceptar;
         private PictureBox pictureBox1;
+        private Panel panel5;
+        private ComboBox cmBoxCategoria;
+        private Label Categoria;
+        private Label lblIdProds;
     }
 }

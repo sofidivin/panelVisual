@@ -1,4 +1,5 @@
-﻿using panelVisual.Properties;
+﻿using panelVisual.Modelos;
+using panelVisual.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,15 +19,20 @@ namespace panelVisual
         public ProductForm()
         {
             InitializeComponent();
+            lblIdProds.Text = (ProductoRepositorio.lastId + 1).ToString();
+            LlenarCombo();
         }
 
         public ProductForm(Producto prod)
         {
             InitializeComponent();
-            txtId.Text = prod.Id.ToString();
+            LlenarCombo();
+            lblIdProds.Text = prod.Id.ToString();
             txtNombre.Text = prod.Nombre;
             txtColor.Text = prod.Color;
             txtPrecio.Text = prod.Precio.ToString();
+            cmBoxCategoria.SelectedItem = prod.Categoria.Nombre.ToString();
+
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -37,10 +43,11 @@ namespace panelVisual
             {
                 produtoNuevo = new Producto()
                 {
-                    Id = int.Parse(txtId.Text),
+                    Id = int.Parse(lblIdProds.Text),
                     Nombre = txtNombre.Text,
                     Color = txtColor.Text,
-                    Precio = double.Parse(txtPrecio.Text)
+                    Precio = double.Parse(txtPrecio.Text),
+                    Categoria = CategoriaRepositorio.GetCategoriaByName(cmBoxCategoria.SelectedItem.ToString())
                 };
 
                 this.DialogResult = DialogResult.OK;
@@ -53,11 +60,20 @@ namespace panelVisual
 
         }
 
+        //COMBO DE CATEGORIAS
+        private void LlenarCombo()
+        {
+            foreach (Categoria cat in CategoriaRepositorio.Categorias)
+            {
+                cmBoxCategoria.Items.Add(cat.Nombre);
+            }
+        }
+
         private bool ValidarProducto(out string errorMsg)
         {
             errorMsg = String.Empty;
 
-            if(string.IsNullOrEmpty(txtId.Text))
+            if(string.IsNullOrEmpty(lblIdProds.Text))
             {
                 errorMsg += "Debe indicar el ID del producto " + Environment.NewLine;
             }
@@ -78,6 +94,21 @@ namespace panelVisual
             }
 
             return errorMsg == String.Empty;
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cmBoxCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmBoxCategoria.SelectedItem != null)
+            {
+                Categoria seleccionada = CategoriaRepositorio.GetCategoriaByName(cmBoxCategoria.SelectedItem.ToString());
+                /*filtroProd.Categoria = seleccionada;
+                FiltrarProds();*/
+            }
         }
     }
 }

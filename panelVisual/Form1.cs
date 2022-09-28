@@ -1,4 +1,6 @@
-using panelVisual.Properties;
+using panelVisual.Modelos;
+using panelVisual.Repositorios;
+using System.Windows.Forms;
 
 namespace panelVisual
 {
@@ -7,7 +9,9 @@ namespace panelVisual
         public Form1()
         {
             InitializeComponent();
+            CategoriaRepositorio.IniciarRepositorio();
             ProductoRepositorio.IniciarRepositorio();
+            VisualizarCategoria();
             VisualizarProductos();
         }
 
@@ -35,6 +39,8 @@ namespace panelVisual
                 dataGridView1.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
                 dataGridView1.Rows[rowIndex].Cells[2].Value = prod.Color.ToString();
                 dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Precio.ToString();
+                dataGridView1.Rows[rowIndex].Cells[4].Value = prod.Categoria.Nombre.ToString();
+
             }
         }
 
@@ -56,26 +62,29 @@ namespace panelVisual
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                string idCategoriaEditar = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                string nombreCategoriaEditar = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                string colorCategoriaEditar = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                string precioCategoriaEditar = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                string idProductoEditar = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                string nombreProductoEditar = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                string colorProductoEditar = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                string precioProductoEditar = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                string categoriaProductoEditar = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
 
                 Producto productoEditar = new Producto()
                 {
-                    Id = int.Parse(idCategoriaEditar),
-                    Nombre = nombreCategoriaEditar,
-                    Color = colorCategoriaEditar,
-                    Precio = double.Parse(precioCategoriaEditar)
+                    Id = int.Parse(idProductoEditar),
+                    Nombre = nombreProductoEditar,
+                    Color = colorProductoEditar,
+                    Precio = double.Parse(precioProductoEditar),
+                    Categoria = CategoriaRepositorio.GetCategoriaByName(categoriaProductoEditar)
+
                 };
 
-                ProductForm productForm = new ProductForm();
+                ProductForm productForm = new ProductForm(productoEditar);
                 DialogResult dialogResult = productForm.ShowDialog();
 
                 if (dialogResult == DialogResult.OK)
                 {
                     // Edito el producto
-                    ProductoRepositorio.EditarProducto(int.Parse(idCategoriaEditar), productForm.produtoNuevo);
+                    ProductoRepositorio.EditarProducto(int.Parse(idProductoEditar), productForm.produtoNuevo);
                     VisualizarProductos();
                 }
             }
@@ -131,5 +140,71 @@ namespace panelVisual
 
         }
 
+        private void btnAgregarCat_Click(object sender, EventArgs e)
+        {
+            CategoryForm categoryForm = new CategoryForm();
+            DialogResult dialogResult = categoryForm.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                // Agrego la categoria
+                CategoriaRepositorio.AgregarCategoria(categoryForm.categoriaNuevo);
+                VisualizarCategoria();
+            }
+        }
+
+        private void btnEliminarCat_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                string idCategoriaEliminar = dataGridView2.SelectedRows[0].Cells[0].Value.ToString();
+                CategoriaRepositorio.EliminarCategoria(int.Parse(idCategoriaEliminar));
+                VisualizarCategoria();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un categoria para Eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void VisualizarCategoria()
+        {
+            dataGridView2.Rows.Clear();
+            foreach (Categoria prod in CategoriaRepositorio.Categorias)
+            {
+                int rowIndex = dataGridView2.Rows.Add();
+                dataGridView2.Rows[rowIndex].Cells[0].Value = prod.Id.ToString();
+                dataGridView2.Rows[rowIndex].Cells[1].Value = prod.Nombre.ToString();
+            }
+        }
+
+        private void btnEditarCat_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                string idCategoriaEditar = dataGridView2.SelectedRows[0].Cells[0].Value.ToString();
+                string nombreCategoriaEditar = dataGridView2.SelectedRows[0].Cells[1].Value.ToString();
+
+                Categoria categoriaEditar = new Categoria()
+                {
+                    Id = int.Parse(idCategoriaEditar),
+                    Nombre = nombreCategoriaEditar
+                };
+
+                CategoryForm categoryForm = new CategoryForm();
+                DialogResult dialogResult = categoryForm.ShowDialog();
+
+                if (dialogResult == DialogResult.OK)
+                {
+                    // Edito el producto
+                    CategoriaRepositorio.EditarCategoria(int.Parse(idCategoriaEditar), categoryForm.categoriaNuevo);
+                    VisualizarCategoria();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una categoria para Editar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
