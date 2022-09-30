@@ -49,7 +49,7 @@
             this.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UC_Inicio";
-            this.Size = new System.Drawing.Size(841, 366);
+            this.Size = new System.Drawing.Size(841, 429);
             this.ResumeLayout(false);
             this.PerformLayout();
 

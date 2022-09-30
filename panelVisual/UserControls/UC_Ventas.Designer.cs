@@ -48,7 +48,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Name = "UC_Ventas";
-            this.Size = new System.Drawing.Size(841, 366);
+            this.Size = new System.Drawing.Size(841, 429);
             this.ResumeLayout(false);
             this.PerformLayout();
 
