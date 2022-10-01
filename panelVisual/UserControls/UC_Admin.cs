@@ -49,6 +49,20 @@ namespace panelVisual.UserControls
                 dataGridView1.Rows[rowIndex].Cells[3].Value = prod.Precio.ToString();
                 dataGridView1.Rows[rowIndex].Cells[4].Value = prod.Categoria.Nombre.ToString();
 
+                Image File;
+
+                string nombreFoto = prod.Foto;
+                for(int i = prod.Foto.Length; i < 8; i++)
+                {
+                    nombreFoto = "0" + nombreFoto;
+                }
+
+                string ruta = Program.Ruta_Base + @"Resources\img\productos\imagenes_final\" + nombreFoto + ".jpg"; 
+            
+                File = Image.FromFile(ruta);
+                dataGridView1.Rows[rowIndex].Cells[5].Value = File;
+
+
             }
         }
 

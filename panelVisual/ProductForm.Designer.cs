@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblIdProds = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -46,7 +47,12 @@
             this.Categoria = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblIdProds = new System.Windows.Forms.Label();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnCargarImg = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.txtNombreImg = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -54,6 +60,8 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -64,6 +72,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 23);
             this.panel1.TabIndex = 0;
+            // 
+            // lblIdProds
+            // 
+            this.lblIdProds.AutoSize = true;
+            this.lblIdProds.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblIdProds.Location = new System.Drawing.Point(131, 4);
+            this.lblIdProds.Name = "lblIdProds";
+            this.lblIdProds.Size = new System.Drawing.Size(38, 15);
+            this.lblIdProds.TabIndex = 1;
+            this.lblIdProds.Text = "label1";
             // 
             // Id
             // 
@@ -231,22 +249,71 @@
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
-            // lblIdProds
+            // pbImage
             // 
-            this.lblIdProds.AutoSize = true;
-            this.lblIdProds.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblIdProds.Location = new System.Drawing.Point(131, 4);
-            this.lblIdProds.Name = "lblIdProds";
-            this.lblIdProds.Size = new System.Drawing.Size(38, 15);
-            this.lblIdProds.TabIndex = 1;
-            this.lblIdProds.Text = "label1";
+            this.pbImage.Image = global::panelVisual.Properties.Resources.no_image;
+            this.pbImage.Location = new System.Drawing.Point(274, 76);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(100, 73);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImage.TabIndex = 14;
+            this.pbImage.TabStop = false;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // btnCargarImg
+            // 
+            this.btnCargarImg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnCargarImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCargarImg.Font = new System.Drawing.Font("Arial Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCargarImg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnCargarImg.Location = new System.Drawing.Point(389, 76);
+            this.btnCargarImg.Name = "btnCargarImg";
+            this.btnCargarImg.Size = new System.Drawing.Size(85, 32);
+            this.btnCargarImg.TabIndex = 16;
+            this.btnCargarImg.Text = "Cargar";
+            this.btnCargarImg.UseVisualStyleBackColor = false;
+            this.btnCargarImg.Click += new System.EventHandler(this.btnCargarImg_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.txtNombreImg);
+            this.panel6.Controls.Add(this.label1);
+            this.panel6.Location = new System.Drawing.Point(274, 166);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(200, 23);
+            this.panel6.TabIndex = 17;
+            // 
+            // txtNombreImg
+            // 
+            this.txtNombreImg.Location = new System.Drawing.Point(100, 0);
+            this.txtNombreImg.Name = "txtNombreImg";
+            this.txtNombreImg.Size = new System.Drawing.Size(100, 23);
+            this.txtNombreImg.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nombre IMG";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(290, 292);
+            this.ClientSize = new System.Drawing.Size(531, 292);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.btnCargarImg);
+            this.Controls.Add(this.pbImage);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -263,6 +330,9 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -287,5 +357,11 @@
         private ComboBox cmBoxCategoria;
         private Label Categoria;
         private Label lblIdProds;
+        private PictureBox pbImage;
+        private OpenFileDialog openFileDialog1;
+        private Button btnCargarImg;
+        private Panel panel6;
+        private TextBox txtNombreImg;
+        private Label label1;
     }
 }

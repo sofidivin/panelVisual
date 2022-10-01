@@ -16,6 +16,8 @@ namespace panelVisual
     {
         public Producto produtoNuevo;
 
+        public Image File { get; set; }
+
         public ProductForm()
         {
             InitializeComponent();
@@ -41,6 +43,16 @@ namespace panelVisual
             
             if(productoValidado)
             {
+
+                try
+                {
+                    File.Save(Program.Ruta_Base + @"Resources\img\productos\imagenes_final\" + txtNombreImg.Text + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                }
+                catch
+                {
+                    //no se guarda la img
+                }
+
                 produtoNuevo = new Producto()
                 {
                     Id = int.Parse(lblIdProds.Text),
@@ -110,5 +122,17 @@ namespace panelVisual
                 FiltrarProds();*/
             }
         }
+
+        private void btnCargarImg_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "JPG(*.JPG)| *.jpg";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                File = Image.FromFile(ofd.FileName);
+                pbImage.Image = File;
+            }
+        }
+
     }
 }

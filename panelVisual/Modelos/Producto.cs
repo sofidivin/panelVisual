@@ -18,5 +18,7 @@ namespace panelVisual.Modelos
 
         public Categoria Categoria { get; set; }
 
+        public String Foto { get; set; }
+
     }
 }

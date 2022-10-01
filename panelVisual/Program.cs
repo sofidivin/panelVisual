@@ -1,15 +1,29 @@
 namespace panelVisual
 {
-    internal static class Program
+    static class Program
     {
+
+        public static String Ruta_Base;
+
+        public static String Entorno="";
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+
+            if(Entorno == "escuela")
+            {
+                Ruta_Base = @"C:\Users\Alumno\Desktop\WindowsFormsApp1\";
+            }
+            else
+            {
+                Ruta_Base = @"C:\Users\LukaiN\source\repos\sofidivin\panelVisual\panelVisual\";
+            }
+
+
             ApplicationConfiguration.Initialize();
             Application.Run(new Form2());
         }
